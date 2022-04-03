@@ -19,7 +19,7 @@ client_scripts {
 }
 
 server_scripts {
-    '@eDBase/base/lib/MySQL.lua',
+    '@mysql-async/lib/MySQL.lua',
     "server/*.lua",
 }
 
