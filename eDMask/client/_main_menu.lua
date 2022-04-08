@@ -1,14 +1,6 @@
 _Client.MainMenu = {} or {} 
 _Client.MainMenu.MaskIndex = 1
 _Client.MainMenu.MaskColorIndex = 1
-_Client.MainMenu.getColor = {}
-for i = 0, GetNumberOfPedTextureVariations(PlayerPedId(), 1, _Client.MainMenu.MaskIndex) -1 do
-    _Client.MainMenu.getColor[i] = i
-end
-_Client.MainMenu.getMask = {} 
-for i = 0, GetNumberOfPedDrawableVariations(PlayerPedId(), 1) - 1, 1 do
-    _Client.MainMenu.getMask[i] = i
-end
 
 _Client.MainMenu.Open = function(Mask)
     local main = RageUI.CreateMenu(_Client.Function.Locales["mainMenu"], _Client.Function.Locales["mainMenuTitle"])
@@ -16,6 +8,8 @@ _Client.MainMenu.Open = function(Mask)
     main:AddInstructionButton({[1] = GetControlInstructionalButton(0, 15, 0), [2] = _Client.Function.Locales["mainMenuInstructionalButtonZoomBefore"]})
     main:AddInstructionButton({[1] = GetControlInstructionalButton(0, 44, 0), [2] = _Client.Function.Locales["mainMenuInstructionalButtonRight"]})
     main:AddInstructionButton({[1] = GetControlInstructionalButton(0, 51, 0), [2] = _Client.Function.Locales["mainMenuInstructionalButtonLeft"]})
+    _Client.MainMenu.getColor = for i = 0, GetNumberOfPedTextureVariations(PlayerPedId(), 1, _Client.MainMenu.MaskIndex) -1 do _Client.MainMenu.getColor[i] = i end
+    _Client.MainMenu.getMask = for i = 0, GetNumberOfPedDrawableVariations(PlayerPedId(), 1) - 1, 1 do _Client.MainMenu.getMask[i] = i end
     RageUI.Visible(main, true)
     while main do
         Citizen.Wait(0)
